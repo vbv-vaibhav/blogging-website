@@ -7,7 +7,7 @@ const FullBlog = ({ blog }: { blog: Blog }) => {
     <div>
       <AppBar />
       <div className="flex justify-center">
-        <div className="grid grid-cols-12 px-10 w-full pt-200 max-w-[1200px] pt-12">
+        <div className="grid grid-cols-12 gap-6 px-10 w-full pt-200 max-w-[1200px] pt-12">
           <div className="col-span-9">
             <div className="text-5xl font-extrabold">{blog.title}</div>
             <div className="text-gray-400 pt-3 font-light">
