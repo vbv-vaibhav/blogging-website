@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 const AppBar = () => {
   const navigate = useNavigate();
   const logoutHandler = () => {
-    setInterval(() => {
+    setTimeout(() => {
       localStorage.removeItem("token");
       navigate("/signin");
     }, 1000);
