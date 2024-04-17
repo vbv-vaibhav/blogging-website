@@ -52,6 +52,9 @@ const Auth = ({ type }: { type: "signup" | "signin" }) => {
                 <LabelledInput
                   label="Name"
                   placeholder="Full Name"
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") sendRequest();
+                  }}
                   onChange={(e) => {
                     setPostInputs({
                       ...postInputs,
@@ -63,6 +66,9 @@ const Auth = ({ type }: { type: "signup" | "signin" }) => {
               <LabelledInput
                 label="Username"
                 placeholder="Email Address"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") sendRequest();
+                }}
                 onChange={(e) => {
                   setPostInputs({
                     ...postInputs,
@@ -73,6 +79,9 @@ const Auth = ({ type }: { type: "signup" | "signin" }) => {
               <LabelledInput
                 label="Password"
                 placeholder="New Password"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") sendRequest();
+                }}
                 type="password"
                 onChange={(e) => {
                   setPostInputs({
@@ -101,6 +110,7 @@ interface LabelledInputType {
   placeholder: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   type?: string;
+  onKeyDown: (e: React.KeyboardEvent<HTMLDivElement>) => void;
 }
 
 function LabelledInput({
@@ -108,6 +118,7 @@ function LabelledInput({
   placeholder,
   onChange,
   type,
+  onKeyDown,
 }: LabelledInputType) {
   return (
     <div>
@@ -117,6 +128,7 @@ function LabelledInput({
         </label>
         <input
           onChange={onChange}
+          onKeyDown={onKeyDown}
           type={type || "text"}
           id="first_name"
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
